@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installable App</title>
+  
+  <!-- Inline PWA Manifest -->
+  <script>
+    const manifest = {
+      "name": "My PWA App",
+      "short_name": "MyPWA",
+      "start_url": "./",
+      "display": "standalone",
+      "background_color": "#ffffff",
+      "theme_color": "#4CAF50",
+      "icons": [
+        {
+          "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHUlEQVR42mNgwAL/////P6Y01+QU6SgQgEsZ9YBKvQ+QXwPybCcQvRBLIP6CV4HynEL0tyAdQfA/WAfoBzLVQTkwzvgnwHyOBLJGuQ8AaJPASuPyBlRSBIrIL0AsZKwEooDRZKA5ApWIUjqJqArECmpWICQCWFA1HRKQF2BRYWZUC0BRSRUUrIQwEriqpUgm4MyIppFUhUkBQpUh7FRIkQVKSq1cIZGpFqgVoKmLQFkJSMUIhICUkoDBRKHkgABBgAx5hZXlH2ocwAAAABJRU5ErkJggg==",
+          "sizes": "48x48",
+          "type": "image/png"
+        }
+      ]
+    };
+    const manifestBlob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
+    const manifestURL = URL.createObjectURL(manifestBlob);
+    const manifestLink = document.createElement('link');
+    manifestLink.rel = 'manifest';
+    manifestLink.href = manifestURL;
+    document.head.appendChild(manifestLink);
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHUlEQVR42mNgwAL/////P6Y01+QU6SgQgEsZ9YBKvQ+QXwPybCcQvRBLIP6CV4HynEL0tyAdQfA/WAfoBzLVQTkwzvgnwHyOBLJGuQ8AaJPASuPyBlRSBIrIL0AsZKwEooDRZKA5ApWIUjqJqArECmpWICQCWFA1HRKQF2BRYWZUC0BRSRUUrIQwEriqpUgm4MyIppFUhUkBQpUh7FRIkQVKSq1cIZGpFqgVoKmLQFkJSMUIhICUkoDBRKHkgABBgAx5hZXlH2ocwAAAABJRU5ErkJggg==" type="image/png">
+</head>
+<body>
+  <h1>Welcome to My Installable App</h1>
+  <script>
+    // Redirect to your Google Apps Script
+    window.location.href = "https://script.google.com/macros/s/.../exec";
+  </script>
+</body>
+</html>
